@@ -1,4 +1,5 @@
 // INPUT
+// Bottone "Genera"
 const generateBtn = document.getElementById("generate-btn");
 generateBtn.addEventListener("click",
 
@@ -50,6 +51,45 @@ generateBtn.addEventListener("click",
         // Arrotondiamo il prezzo ad un massimo di due decimali
         let finalPrice = discountedPrice.toFixed(2);
         console.log(finalPrice);
+        
+        // Genero il numero della carrozza da 1 a 9
+        const carriage = Math.floor(Math.random() * 9) + 1;
+        
+        // Genero un codice CP tra 10000 e 99999
+        const code = Math.floor(Math.random() * 99999 - 10000 + 1) + 10000;
+        
+        // OUTPUT
+        // Stampo i dati del biglietto
+        const ticket = document.getElementById("ticket");
+        document.getElementById("output-title").classList.remove("hidden")
+        ticket.classList.remove("hidden");
+        
+        document.getElementById("passenger-name").innerHTML = fullName;
+        document.getElementById("offer").innerHTML = offer;
+        document.getElementById("carriage").innerHTML = carriage;
+        document.getElementById("cp-code").innerHTML = code;
+        document.getElementById("ticket-price").innerHTML = finalPrice + ' €';
+
+        // Ripulisco gli input
+        fullNameInput.value = "";
+        distanceInput.value = "";
+        ageInput.value = "";
+        
+    }
+);
+
+// Bottone "Annulla"
+const cancelBtn = document.getElementById("cancel-btn");
+cancelBtn.addEventListener("click",
+
+    function() {
+        document.getElementById("output-title").classList.add("hidden")
+        document.getElementById("ticket").classList.add("hidden");
+
+        // Ripulisco gli input
+        fullNameInput.value = "";
+        distanceInput.value = "";
+        ageInput.value = "";
     }
 
 );

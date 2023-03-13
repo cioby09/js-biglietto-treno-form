@@ -5,26 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FrecciaBoolean</title>
+
+    <!-- Custome styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <!-- Name input -->
-    <label for="user-name">Nome e Cognome</label>
-    <input type="text" id="user-name">
+    <!-- Header -->
+    <header class="p-4 d-flex align-items-center">
+        <img src="img/logo boolean.png" alt="Boolean">
+        <h1>FrecciaBoolean</h1>
+    </header>
 
-    <!-- Distance input -->
-    <label for="distance">Km da percorrere</label>
-    <input type="text" id="distance">
+    <!-- Main -->
+    <main class="overflow-auto">
+        <div class="container">
 
-    <!-- Age input -->
-    <label for="age">Fascia d'età</label>
-    <select name="age" id="age">
-        <option value=""></option>
-        <option value="under18">Minorenne</option>
-        <option value="adult">Maggiorenne</option>
-        <option value="over65">Oltre i 65 anni</option>
-    </select>
+            <!-- Input title -->
+            <h2 class="text-uppercase text-white text-center p-4">Calcola il prezzo del tuo biglietto</h2>
 
-    <button id="generate-btn">Genera</button>
+            <!-- Input card -->
+            <div class="input bg-white d-flex flex-column">
+                <!-- Inputs -->
+                <div class="row inputs d-flex flex-row justify-content-center text-center p-4 align-self-center">
+                    <!-- Name input -->
+                    <div class="col-4 name-input d-flex flex-column px-5">
+                        <label class="pb-3" for="user-name">Nome e Cognome</label> 
+                        <input type="text" id="user-name">
+                    </div>
+
+                    <!-- Distance input -->
+                    <div class="col-4 distance-input d-flex flex-column px-5">
+                        <label class="pb-3" for="distance">Km da percorrere</label>
+                        <input type="text" id="distance">
+                    </div>
+
+                    <!-- Age input -->
+                    <div class="col-4 age-input d-flex flex-column px-5">
+                        <label class="pb-3" for="age">Fascia d'età</label>
+                        <select name="age" id="age">
+                            <option value=""></option>
+                            <option value="under18">Minorenne</option>
+                            <option value="adult">Maggiorenne</option>
+                            <option value="over65">Oltre i 65 anni</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Input buttons -->
+                <div class="input-buttons text-center p-4">
+                    <button class="mx-2" id="generate-btn">Genera</button>
+                    <button class="mx-2" id="cancel-btn">Annulla</button>
+                </div>
+            </div>
+
+            <!-- Output title -->
+            <h2 id="output-title" class="hidden text-uppercase text-white text-center p-4">Il tuo biglietto</h2>
+
+            <!-- Output card -->
+            <div id="ticket" class="hidden output bg-white p-5 mb-5">
+                <h3 class="text-uppercase">Dettaglio passeggeri</h3>
+                <div class="ticket border-top border-bottom border-secondary row">
+                    <div class="passenger-name d-flex justify-content-center flex-column bg-secondary col-3">
+                        <h4 class="text-uppercase">Nome passeggero</h4>
+                        <h5 id="passenger-name"></h5>
+                    </div>
+                    <table class="col-9">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Offerta</th>
+                                <th>Carrozza</th>
+                                <th>Codice CP</th>
+                                <th>Costo biglietto</th>
+                            </tr>
+                        </thead>
+                        <tbody  class="text-center">
+                            <tr>
+                                <td><span id="offer"></span></td>
+                                <td><span id="carriage"></span></td>
+                                <td><span id="cp-code"></span></td>
+                                <td><span id="ticket-price"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
     <script src="js/script.js"></script>
 </body>
 </html>
